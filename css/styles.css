@@ -34,6 +34,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .menu {
@@ -54,6 +55,34 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
+  animation: span-raise 500ms backwards;
+}
+.menu-item--1 {
+  animation-delay: 200ms;
+}
+.menu-item--2 {
+  animation-delay: 400ms;
+}
+.menu-item--3 {
+  animation-delay: 600ms;
+}
+.menu-item:nth-child(1) span {
+  animation-delay: 600ms;
+}
+.menu-item:nth-child(2) span {
+  animation-delay: 800ms;
+}
+.menu-item:nth-child(3) span {
+  animation-delay: 1000ms;
+}
+.menu-item:nth-child(1) span::before {
+  animation-delay: 1000ms;
+}
+.menu-item:nth-child(2) span::before {
+  animation-delay: 1200ms;
+}
+.menu-item:nth-child(3) span::before {
+  animation-delay: 1400ms;
 }
 .menu-item span {
   font-size: 20px;
@@ -63,7 +92,7 @@ body {
   align-items: center;
   gap: 5px;
   height: 95%;
-  animation: span-raise 1s;
+  animation: span-raise 500ms 600ms backwards;
 }
 .menu-item span::before {
   content: "";
@@ -71,7 +100,7 @@ body {
   height: 100%;
   border-left: 3px solid rgb(130, 209, 130);
   padding: 2px;
-  animation: before-raise 1s 1s backwards;
+  animation: before-raise 500ms backwards;
 }
 
 /*# sourceMappingURL=styles.css.map */

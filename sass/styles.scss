@@ -1,3 +1,9 @@
+$anim-dur: 500ms;
+$num-items: 3;
+
+
+
+
 @keyframes before-raise {
     0% {
         transform: scaleY(0);
@@ -40,6 +46,7 @@ body {
     width: 20%;
     height: 20%;
     @include center-flex;
+    overflow: hidden;
 }
 
 .menu {
@@ -61,6 +68,26 @@ body {
         display: flex;
         align-items: center;
         overflow: hidden;
+        animation: span-raise $anim-dur backwards;
+
+        @for $i from 1 through $num-items {
+            &--#{$i} {
+                animation-delay: 200ms * $i;
+            }
+        }
+
+        @for $i from 1 through $num-items {
+            &:nth-child(#{$i}) span {
+                animation-delay: 400ms + 200ms * $i ;
+            }
+        }
+
+        @for $i from 1 through $num-items {
+            &:nth-child(#{$i}) span::before {
+                animation-delay: 800ms + 200ms * $i;
+            }
+        }
+
 
         & span {
             font-size: 20px;
@@ -70,7 +97,7 @@ body {
             align-items: center;
             gap: 5px;
             height: 95%;
-            animation: span-raise 1s;
+            animation: span-raise $anim-dur 600ms backwards;
 
             &::before {
                 content: "";
@@ -78,9 +105,7 @@ body {
                 height: 100%;
                 border-left: 3px solid rgb(130, 209, 130);
                 padding: 2px;
-                animation: before-raise 1s 1s backwards;
-
-                
+                animation: before-raise $anim-dur backwards; 
             }
         
         }
